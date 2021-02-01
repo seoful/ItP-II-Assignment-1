@@ -7,7 +7,7 @@ _Note:_ The algorithm is searching for the words without looking at their case e
 ## Input and output
 
 **Input file contains:**
-* Text in **exactly** one line with sentences ending with dot, question or exclamation mark - `. ! ?`
+* Text in **exactly** one line with sentences ending with dot, question or exclamation mark - `. ? !`
 * Number of words to search for - `n`
 * `n` lines with single words to search for
 
