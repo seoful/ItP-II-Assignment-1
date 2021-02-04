@@ -36,5 +36,5 @@ It was popularised in the 1960s with the RELEASE of Letraset sheets containing L
 
 ## Requirements
 The **input** is done from the file `in.txt` which **must** be located in the same directory as the `main.cpp`.\
-The **output** is done into the automatically generated `out.txt` file in the directory with `main.cpp`.
+The **output** is done into the automatically generated `out.txt` file in the directory with `main.cpp`.\
 Required **version** of language is `C++11`
