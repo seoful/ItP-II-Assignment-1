@@ -4,6 +4,10 @@
 
 using namespace std;
 
+const string SENTENCE_ENDING_CHARS = ".!?";
+const string SENTENCE_NOT_BEGIN_WITH = " .!?";
+const string WORD_ENDING_CHARS = " .?!,:;()-_+='\"`~[]{}^&%$#@|\\/";
+
 /**
  * @brief Splits a text given in the string into the sentences ending by a dot.
  * @param text a text to split into sentences
@@ -13,10 +17,10 @@ vector<string> break_into_sentences(const string &text) {
     vector<string> sentences;
     int sentence_beginning = 0;
     while (sentence_beginning < text.length() - 1) {
-        int sentence_end = text.find_first_of(".!?", sentence_beginning);
+        int sentence_end = text.find_first_of(SENTENCE_ENDING_CHARS, sentence_beginning);
         string sentence = text.substr(sentence_beginning, sentence_end - sentence_beginning + 1);
         sentences.push_back(sentence);
-        sentence_beginning = text.find_first_not_of(" .?!", sentence_end + 1);
+        sentence_beginning = text.find_first_not_of(SENTENCE_NOT_BEGIN_WITH, sentence_end + 1);
     }
     return sentences;
 }
@@ -40,7 +44,7 @@ bool highlight_word_in_sentence(string &sentence, string word_to_highlight) {
     string_to_upper(word_to_highlight);
     int word_beginning = 0;
     while (word_beginning < sentence.length() - 2) { //-2 as we have a dot in the end of the sentence
-        int word_end = sentence.find_first_of(" ,:;()-_+='\"`~[]{}^&%$#@|\\", word_beginning); //Searching for the end of the word
+        int word_end = sentence.find_first_of(WORD_ENDING_CHARS, word_beginning); //Searching for the end of the word
         int word_len = word_end - word_beginning;
         string current_word = sentence.substr(word_beginning, word_len); //Getting the word
         string_to_upper(current_word);
@@ -48,7 +52,7 @@ bool highlight_word_in_sentence(string &sentence, string word_to_highlight) {
             word_found = true;
             sentence.replace(word_beginning, word_len, current_word); //Highlighting the word in a given sentence
         }
-        word_beginning = sentence.find_first_not_of(" ,:;()-_+='\"`~[]{}^&%$#@|\\", word_end); //Proceeding to the next word.
+        word_beginning = sentence.find_first_not_of(WORD_ENDING_CHARS, word_end); //Proceeding to the next word.
     }
     return word_found;
 }
