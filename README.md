@@ -7,7 +7,7 @@ _Note:_ The algorithm is searching for the words without looking at their case e
 ## Input and output
 
 **Input file contains:**
-* Text in **exactly** one line with sentences ending with dot, question or exclamation mark - `. ! ?`
+* Text in **exactly** one line with sentences ending with dot, question or exclamation mark - `. ? !`
 * Number of words to search for - `n`
 * `n` lines with single words to search for
 
@@ -36,4 +36,5 @@ It was popularised in the 1960s with the RELEASE of Letraset sheets containing L
 
 ## Requirements
 The **input** is done from the file `in.txt` which **must** be located in the same directory as the `main.cpp`.\
-The **output** is done into the automatically generated `out.txt` file in the directory with `main.cpp`.
+The **output** is done into the automatically generated `out.txt` file in the directory with `main.cpp`.\
+Required **version** of language is `C++11`
