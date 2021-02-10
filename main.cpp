@@ -22,6 +22,7 @@ vector<string> break_into_sentences(const string &text) {
         sentences.push_back(sentence);
         sentence_beginning = text.find_first_not_of(SENTENCE_NOT_BEGIN_WITH, sentence_end + 1);
     }
+
     return sentences;
 }
 
@@ -43,7 +44,7 @@ bool highlight_word_in_sentence(string &sentence, string word_to_highlight) {
     bool word_found = false;
     string_to_upper(word_to_highlight);
     int word_beginning = 0;
-    while (word_beginning < sentence.length() - 2) { //-2 as we have a dot in the end of the sentence
+    while (word_beginning <= sentence.length() - 2) { //-2 as we have a dot in the end of the sentence
         int word_end = sentence.find_first_of(WORD_ENDING_CHARS, word_beginning); //Searching for the end of the word
         int word_len = word_end - word_beginning;
         string current_word = sentence.substr(word_beginning, word_len); //Getting the word
